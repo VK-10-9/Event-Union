@@ -24,7 +24,7 @@ export default function Footer() {
               aria-label="whatsapp Profile"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              <whatsapp className="w-6 h-6" />
+              <Whatsapp className="w-6 h-6" />
             </a>
             <a
               href="https://linkedin.com/in/vishwanath-koliwad-02514631b"
