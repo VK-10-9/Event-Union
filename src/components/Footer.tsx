@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Github, Linkedin, Twitter, Instagram, whatsapp } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -18,13 +18,13 @@ export default function Footer() {
           {/* Social Media Links */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/VK-10-9"
+              href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub Profile"
+              aria-label="whatsapp Profile"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              <Github className="w-6 h-6" />
+              <whatsapp className="w-6 h-6" />
             </a>
             <a
               href="https://linkedin.com/in/vishwanath-koliwad-02514631b"
