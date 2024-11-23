@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Instagram, Whatsapp } from 'lucide-react';
+import { Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
 
           {/* Social Media Links */}
-          <div className="flex space-x-6">
+          <<div className="flex space-x-6">
             <a
               href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
               target="_blank"
@@ -24,10 +24,10 @@ export default function Footer() {
               aria-label="WhatsApp Profile"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              <Whatsapp className="w-6 h-6" />
+              <FaWhatsapp className="w-6 h-6" /> {/* Use FaWhatsapp from react-icons */}
             </a>
             <a
-              href="https://linkedin.com/in/vishwanath-koliwad-02514631b"
+              href="https://www.linkedin.com/company/eventunionglobal/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
