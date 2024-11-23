@@ -80,7 +80,7 @@ export default function Team() {
         'https://static.wixstatic.com/media/bcd64e_3b851cc01bc0403cb8d4fa738341df14~mv2.png',
       social: {
         linkedin: 'https://www.linkedin.com/in/himanshu-sharma-72a590272/',
-        github: '#',
+        github: 'https://github.com/heyhimanshusharma',
       },
     },
     {
