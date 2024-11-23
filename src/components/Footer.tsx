@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Social Media Links */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/VK-10-9"
+              href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
