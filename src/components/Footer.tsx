@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Instagram, whatsapp } from 'lucide-react';
+import { Linkedin, Twitter, Instagram, Whatsapp } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -21,7 +21,7 @@ export default function Footer() {
               href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="whatsapp Profile"
+              aria-label="WhatsApp Profile"
               className="text-gray-400 hover:text-white transition-colors"
             >
               <Whatsapp className="w-6 h-6" />
