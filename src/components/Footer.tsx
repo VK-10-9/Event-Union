@@ -16,15 +16,15 @@ export default function Footer() {
           </div>
 
           {/* Social Media Links */}
-          <<div className="flex space-x-6">
+          <div className="flex space-x-6">
             <a
-              href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
+              href="https://github.com/VK-10-9"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="WhatsApp Profile"
+              aria-label="GitHub Profile"
               className="text-gray-400 hover:text-white transition-colors"
             >
-              <FaWhatsapp className="w-6 h-6" /> {/* Use FaWhatsapp from react-icons */}
+              <Github className="w-6 h-6" />
             </a>
             <a
               href="https://www.linkedin.com/company/eventunionglobal/"
