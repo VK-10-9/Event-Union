@@ -69,7 +69,7 @@ export default function Team() {
         'https://static.wixstatic.com/media/bcd64e_c3c3ac82c27345a4a9a8b1719f68f2c9~mv2.png',
       social: {
         linkedin: 'https://www.linkedin.com/in/shashank-patil-232881315/',
-        github: '#',
+        github: 'https://github.com/shashankptl',
       },
     },
     {
