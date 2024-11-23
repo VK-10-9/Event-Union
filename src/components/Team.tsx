@@ -28,7 +28,7 @@ export default function Team() {
     {
       name: 'Arnav Goyal',
       role: 'Co-Founder',
-      profession: "Your Co-founder's Profession",
+      profession: "Computer Science Student",
       image:
         'https://static.wixstatic.com/media/bcd64e_957bc8b7d16c406eab62b7f30c3a9f84~mv2.png',
       social: {
