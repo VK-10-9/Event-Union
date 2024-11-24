@@ -6,11 +6,11 @@ export default function Team() {
     {
       name: 'Vishwanath K',
       role: 'Co-Founder',
-      profession: 'Computer Science Student',
+      //profession: 'Computer Science Student',
       image: 'https://i.ibb.co/ctdykGT/your-image.jpg',
       description: 'Leading the technical vision and development of Event Union. Passionate about creating innovative solutions for event management.',
-      location: 'Bengaluru, Karnataka',
-      email: 'vishwanath@eventunion.co',
+      location: 'Hubli, Karnataka',
+      email: 'vishwanathkoliwad@gmail.com',
       socialLinks: [
         {
           platform: 'GitHub',
@@ -27,7 +27,7 @@ export default function Team() {
     {
       name: 'Arnav Goyal',
       role: 'Co-Founder',
-      profession: 'Computer Science Student',
+      //profession: 'Computer Science Student',
       image: 'https://static.wixstatic.com/media/bcd64e_957bc8b7d16c406eab62b7f30c3a9f84~mv2.png',
       description: 'Driving business strategy and growth at Event Union. Focused on building meaningful connections in the event industry.',
       location: 'Bengaluru, Karnataka',
@@ -69,7 +69,7 @@ export default function Team() {
       profession: 'Technical Lead',
       image: 'https://static.wixstatic.com/media/bcd64e_d4624a661fc64829afa308dbf9c3fbf4~mv2.png',
       description: 'Developing and maintaining the technical infrastructure of Event Union.',
-      location: 'Bengaluru, Karnataka',
+      location: 'Delhi',
       socialLinks: [
         {
           platform: 'LinkedIn',
@@ -89,7 +89,7 @@ export default function Team() {
       profession: 'Marketing',
       image: 'https://static.wixstatic.com/media/bcd64e_c3c3ac82c27345a4a9a8b1719f68f2c9~mv2.png',
       description: 'Managing marketing campaigns and user engagement strategies.',
-      location: 'Bengaluru, Karnataka',
+      location: 'Hubli, Karnataka',
       socialLinks: [
         {
           platform: 'LinkedIn',
@@ -104,7 +104,7 @@ export default function Team() {
       profession: 'Product Manager',
       image: 'https://static.wixstatic.com/media/bcd64e_3b851cc01bc0403cb8d4fa738341df14~mv2.png',
       description: 'Overseeing product development and user experience optimization.',
-      location: 'Bengaluru, Karnataka',
+      location: 'Pune Maharashtra',
       socialLinks: [
         {
           platform: 'LinkedIn',
@@ -119,7 +119,7 @@ export default function Team() {
       profession: 'Business Development',
       image: 'https://static.wixstatic.com/media/bcd64e_37878ffa8d3e4ebeb10f9ed8e3f16219~mv2.jpg',
       description: 'Driving business growth and partnership development initiatives.',
-      location: 'Bengaluru, Karnataka',
+      location: 'Pune Maharashtra',
       socialLinks: [
         {
           platform: 'LinkedIn',
