@@ -22,8 +22,8 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center justify-center md:justify-start text-gray-400">
                 <Mail className="w-5 h-5 mr-2" />
-                <a href="mailto:eventunion.co@gmail.com" className="hover:text-white transition-colors">
-                  eventunion.co@gmail.com
+                <a href="mailto:eventunionbusiness@gmail.com" className="hover:text-white transition-colors">
+                  eventunionbusiness@gmail.com
                 </a>
               </div>
               <div className="flex items-center justify-center md:justify-start text-gray-400">
