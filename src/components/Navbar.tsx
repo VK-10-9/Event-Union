@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="border-b border-white/10 backdrop-blur-md fixed w-full z-50">
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-gray-950/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center h-16 items-center">
+        <div className="flex justify-between items-center h-16 sm:h-20">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-white">Event Union</span>
+            <span className="text-xl sm:text-2xl font-bold text-white hover:text-blue-400 transition-colors cursor-pointer">
+              Event Union
+            </span>
+          </div>
+          
+          <div className="hidden sm:flex items-center space-x-6">
+            <a
+              href="https://chat.whatsapp.com/GpRcsFdMKXgCQxhxNj0Oin"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-white transition-colors text-sm"
+            >
+              Join Community
+            </a>
           </div>
         </div>
       </div>
