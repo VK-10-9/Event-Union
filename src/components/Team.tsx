@@ -116,7 +116,7 @@ export default function Team() {
     {
       name: 'Pranav Darekar',
       role: 'Core Team',
-      profession: 'Finance leadt',
+      profession: 'Finance lead',
       image: 'https://static.wixstatic.com/media/bcd64e_37878ffa8d3e4ebeb10f9ed8e3f16219~mv2.jpg',
       description: 'Driving business growth and partnership development initiatives.',
       location: 'Pune Maharashtra',
