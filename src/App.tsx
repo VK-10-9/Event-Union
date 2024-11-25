@@ -1,14 +1,14 @@
 import React from 'react';
 import { 
   Network, TrendingUp, Zap, 
-  Settings, Users2, Share2,
-  Users, Globe, Calendar
+  Settings, Users2, Share2
 } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import Team from './components/Team';
 import Footer from './components/Footer';
+import CommunityCounter from './components/CommunityCounter';
 
 export default function App() {
   const features = [
@@ -49,6 +49,7 @@ export default function App() {
       <Navbar />
       <main className="relative">
         <Hero />
+        <CommunityCounter />
         <Features features={features} />
         <Team />
       </main>
