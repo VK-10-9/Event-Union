@@ -6,7 +6,7 @@ export default function CommunityCounter() {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef(null);
-  const targetCount = 378;
+  const targetCount = 400;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -66,7 +66,7 @@ export default function CommunityCounter() {
             to="/survey"
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            Join Our Community
+            Conect with Us
           </Link>
         </div>
       </div>
