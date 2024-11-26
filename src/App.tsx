@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { 
   Network, TrendingUp, Zap, 
   Settings, Users2, Share2
@@ -9,6 +10,7 @@ import Features from './components/Features';
 import Team from './components/Team';
 import Footer from './components/Footer';
 import CommunityCounter from './components/CommunityCounter';
+import SurveyForm from './pages/SurveyForm';
 
 export default function App() {
   const features = [
@@ -45,15 +47,22 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950">
-      <Navbar />
-      <main className="relative">
-        <Hero />
-        <CommunityCounter />
-        <Features features={features} />
-        <Team />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/survey" element={<SurveyForm />} />
+        <Route path="/" element={
+          <div className="min-h-screen bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950">
+            <Navbar />
+            <main className="relative">
+              <Hero />
+              <CommunityCounter />
+              <Features features={features} />
+              <Team />
+            </main>
+            <Footer />
+          </div>
+        } />
+      </Routes>
+    </Router>
   );
 }
