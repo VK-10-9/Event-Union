@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function CommunityCounter() {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef(null);
-  const targetCount = 400;
+  const targetCount = 378;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,13 +29,12 @@ export default function CommunityCounter() {
     if (!isVisible) return;
 
     let startTimestamp: number | null = null;
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
 
     const step = (timestamp: number) => {
       if (!startTimestamp) startTimestamp = timestamp;
       const progress = Math.min((timestamp - startTimestamp) / duration, 1);
       
-      // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       const currentCount = Math.floor(easeOutQuart * targetCount);
       
@@ -59,9 +59,15 @@ export default function CommunityCounter() {
             {count.toLocaleString()}
             <span className="text-blue-400">+</span>
           </h2>
-          <p className="text-xl text-gray-300">
+          <p className="text-xl text-gray-300 mb-8">
             Community Members and Growing
           </p>
+          <Link 
+            to="/survey"
+            className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Join Our Community
+          </Link>
         </div>
       </div>
     </div>
