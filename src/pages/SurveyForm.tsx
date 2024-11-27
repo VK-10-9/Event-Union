@@ -1,33 +1,65 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Loader2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import BasicInformation from '../components/form/BasicInformation';
+import StudentInformation from '../components/form/StudentInformation';
+import ProfessionalInformation from '../components/form/ProfessionalInformation';
+import { submitFormToGoogleSheets } from '../services/formSubmission';
 
 export default function SurveyForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [userType, setUserType] = useState('student');
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    setError(null);
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbyR7X90p33xtSm22_oQecPwcvFrYgf3fXmCxhaE4JPG_PovYosPmIbUU8qviCDVdJl9/exec', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const formData = new FormData(e.currentTarget);
+      const data = Object.fromEntries(formData.entries());
+      
+      // Validate required fields
+      const requiredFields = ['name', 'email', 'phone', 'userType'];
+      const studentFields = userType === 'student' ? ['college', 'year', 'branch'] : [];
+      const professionalFields = userType === 'professional' ? ['company', 'designation', 'experience'] : [];
+      
+      const allRequiredFields = [...requiredFields, ...studentFields, ...professionalFields];
+      
+      for (const field of allRequiredFields) {
+        if (!data[field] || data[field] === '') {
+          throw new Error(`Please fill in all required fields`);
+        }
+      }
 
-      if (response.ok) {
+      // Validate email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(data.email.toString())) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Validate phone number (basic validation)
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(data.phone.toString())) {
+        throw new Error('Please enter a valid 10-digit phone number');
+      }
+
+      // For student, validate year selection
+      if (userType === 'student' && (!data.year || data.year === '')) {
+        throw new Error('Please select your year of study');
+      }
+
+      const success = await submitFormToGoogleSheets(data);
+      if (success) {
         setSubmitted(true);
+      } else {
+        throw new Error('Failed to submit form. Please try again.');
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      setError(error instanceof Error ? error.message : 'An unexpected error occurred');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } finally {
       setIsSubmitting(false);
     }
@@ -67,177 +99,21 @@ export default function SurveyForm() {
         <div className="bg-blue-950/20 rounded-2xl p-6 sm:p-8 border border-blue-900/20">
           <h1 className="text-2xl sm:text-3xl font-bold text-white mb-6">Join Our Community</h1>
           
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Basic Information */}
-            <div className="space-y-6">
-              <h2 className="text-xl font-semibold text-white">Basic Information</h2>
-              
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your full name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your email address"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                  Phone Number *
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  required
-                  className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your phone number"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="userType" className="block text-sm font-medium text-gray-300 mb-2">
-                  I am a *
-                </label>
-                <select
-                  id="userType"
-                  name="userType"
-                  required
-                  value={userType}
-                  onChange={(e) => setUserType(e.target.value)}
-                  className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="student">Student</option>
-                  <option value="professional">Working Professional</option>
-                </select>
-              </div>
+          {error && (
+            <div className="mb-6 p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400">
+              {error}
             </div>
+          )}
 
-            {/* Student Information */}
-            {userType === 'student' && (
-              <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-white">Educational Details</h2>
-                
-                <div>
-                  <label htmlFor="college" className="block text-sm font-medium text-gray-300 mb-2">
-                    College/University *
-                  </label>
-                  <input
-                    type="text"
-                    id="college"
-                    name="college"
-                    required
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your college/university name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="year" className="block text-sm font-medium text-gray-300 mb-2">
-                    Year of Study *
-                  </label>
-                  <select
-                    id="year"
-                    name="year"
-                    required
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    <option value="">Select year</option>
-                    <option value="1">1st Year</option>
-                    <option value="2">2nd Year</option>
-                    <option value="3">3rd Year</option>
-                    <option value="4">4th Year</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="branch" className="block text-sm font-medium text-gray-300 mb-2">
-                    Branch/Major *
-                  </label>
-                  <input
-                    type="text"
-                    id="branch"
-                    name="branch"
-                    required
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your branch or major"
-                  />
-                </div>
-              </div>
+          <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+            <BasicInformation userType={userType} setUserType={setUserType} />
+            
+            {userType === 'student' ? (
+              <StudentInformation />
+            ) : (
+              <ProfessionalInformation />
             )}
 
-            {/* Professional Information */}
-            {userType === 'professional' && (
-              <div className="space-y-6">
-                <h2 className="text-xl font-semibold text-white">Professional Details</h2>
-                
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                    Company Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    required
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your company name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="designation" className="block text-sm font-medium text-gray-300 mb-2">
-                    Designation *
-                  </label>
-                  <input
-                    type="text"
-                    id="designation"
-                    name="designation"
-                    required
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter your designation"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="experience" className="block text-sm font-medium text-gray-300 mb-2">
-                    Years of Experience *
-                  </label>
-                  <input
-                    type="number"
-                    id="experience"
-                    name="experience"
-                    required
-                    min="0"
-                    step="0.5"
-                    className="w-full px-4 py-2 bg-blue-900/20 border border-blue-900/50 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    placeholder="Enter years of experience"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Common Additional Information */}
             <div className="space-y-6">
               <h2 className="text-xl font-semibold text-white">Additional Information</h2>
 
