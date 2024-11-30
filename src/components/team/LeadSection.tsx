@@ -60,7 +60,7 @@ export default function LeadSection({ title, leads }: LeadSectionProps) {
     </div>
   );
 }
-</boltArtifact>
+
 
 <boltArtifact id="update-team-component" title="Update Team component with new sections">
 <boltAction type="file" filePath="src/components/Team.tsx">
