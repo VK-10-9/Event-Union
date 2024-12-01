@@ -60,7 +60,7 @@ export default function LeadSection({ title, leads }: LeadSectionProps) {
     </div>
   );
 }
-
+</boltArtifact>
 
 <boltArtifact id="update-team-component" title="Update Team component with new sections">
 <boltAction type="file" filePath="src/components/Team.tsx">
@@ -134,7 +134,7 @@ export default function Team() {
       name: 'Mukul Kashyap',
       role: 'Core Team',
       profession: 'Technical Lead',
-      image: 'https://static.wixstatic.com/media/bcd64e_d4624a661fc64829afa308dbf9c3fbf4~mv2.png',
+      image: 'https://static.wixstatic.com/media/bcd64e_b714b6c1112d4487a3ae4ae66b6291e1~mv2.png/v1/fill/w_224,h_231,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Untitled.png',
       description: 'Developing and maintaining the technical infrastructure of Event Union.',
       location: 'Bengaluru, Karnataka',
       socialLinks: [
@@ -204,33 +204,33 @@ export default function Team() {
 
   const clgLeads = [
     {
-      name: "Sanjana S",
+      name: "Vansh Goel ",
       role: "College Lead",
-      college: "RNSIT, Bangalore",
+      college: "IIT Gandhinagar, Gujarat ",
       socialLinks: [
         {
           platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/sanjana-s-906239227',
+          url: 'https://www.linkedin.com/in/vansh-goel-148007312',
           icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
         }
       ]
     },
     {
-      name: "Shashank M",
+      name: "Vedanta Nalwad",
       role: "College Lead",
-      college: "DSCE, Bangalore",
+      college: "KLE IT, Hubli",
       socialLinks: [
         {
           platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/shashank-m-0b8b75227',
+          url: 'https://www.linkedin.com/in/vedanta-nalwad-956b12334/',
           icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
         }
       ]
     },
     {
-      name: "Shreya Bhat",
+      name: "Spoorti Umathar",
       role: "College Lead",
-      college: "NMIT, Bangalore",
+      college: "KLE Tech, Bangalore",
       socialLinks: [
         {
           platform: 'LinkedIn',
@@ -239,13 +239,50 @@ export default function Team() {
         }
       ]
     }
+{
+      name: "G P LEKHANA",
+      role: "College Lead",
+      college: "SDM COLLEGE OF ENGINEERING AND TECHNOLOGY, Dharwad ",
+      socialLinks: [
+        {
+          platform: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/g-p-lekhana-440471301/',
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+        }
+      ]
+    },
+{
+      name: "Rahul Shastri ",
+      role: "College Lead",
+      college: "PES university, Bengaluru ",
+      socialLinks: [
+        {
+          platform: 'LinkedIn',
+          url: 'https://www.linkedin.com/in/rahul-shastri-a84228318/',
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+        }
+      ]
+    },
+  {
+      name: "Bhavika Chaudhary",
+      role: "College Lead",
+      college: "Vistula University, Warsaw Poland ",
+      socialLinks: [
+        {
+          platform: 'LinkedIn',
+          url: 'www.linkedin.com/in/bhavikach25',
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+        }
+      ]
+    },
+  
   ];
 
   const zonalLeads = [
     {
-      name: "Rahul Kumar",
+      name: "Bhavika Chaudhary",
       role: "Zonal Lead",
-      zone: "North Bangalore",
+      zone: "Global ,Poland",
       socialLinks: [
         {
           platform: 'LinkedIn',
@@ -255,9 +292,9 @@ export default function Team() {
       ]
     },
     {
-      name: "Priya Sharma",
+      name: "Vansh Goel",
       role: "Zonal Lead",
-      zone: "South Bangalore",
+      zone: "Gujarat",
       socialLinks: [
         {
           platform: 'LinkedIn',
