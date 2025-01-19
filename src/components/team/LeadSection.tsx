@@ -1,72 +1,5 @@
 import React from 'react';
-
-interface Lead {
-  name: string;
-  role: string;
-  college?: string;
-  zone?: string;
-  socialLinks?: {
-    platform: string;
-    url: string;
-    icon: string;
-  }[];
-}
-
-interface LeadSectionProps {
-  title: string;
-  leads: Lead[];
-}
-
-export default function LeadSection({ title, leads }: LeadSectionProps) {
-  return (
-    <div className="space-y-8 sm:space-y-12">
-      <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8">{title}</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {leads.map((lead) => (
-          <div
-            key={lead.name}
-            className="bg-blue-950/20 rounded-xl p-6 border border-blue-900/20 hover:border-blue-500/30 transition-all duration-300"
-          >
-            <h4 className="text-lg font-semibold text-white mb-2">{lead.name}</h4>
-            <p className="text-blue-400 text-sm mb-3">{lead.role}</p>
-            {lead.college && (
-              <p className="text-gray-400 text-sm mb-2">{lead.college}</p>
-            )}
-            {lead.zone && (
-              <p className="text-gray-400 text-sm mb-2">{lead.zone}</p>
-            )}
-            {lead.socialLinks && lead.socialLinks.length > 0 && (
-              <div className="flex gap-3 mt-4">
-                {lead.socialLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <img
-                      src={link.icon}
-                      alt={link.platform}
-                      className="w-5 h-5 opacity-75 hover:opacity-100 transition-opacity"
-                    />
-                  </a>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-</boltArtifact>
-
-<boltArtifact id="update-team-component" title="Update Team component with new sections">
-<boltAction type="file" filePath="src/components/Team.tsx">
-import React from 'react';
 import { ProfileSection } from './ProfileSection';
-import LeadSection from './team/LeadSection';
 
 export default function Team() {
   const coFounders = [
@@ -82,14 +15,14 @@ export default function Team() {
         {
           platform: 'GitHub',
           url: 'https://github.com/VK-10-9',
-          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'
+          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
         },
         {
           platform: 'LinkedIn',
           url: 'https://linkedin.com/in/vishwanath-koliwad-02514631b',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
+        },
+      ],
     },
     {
       name: 'Arnav Goyal',
@@ -103,15 +36,15 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/arnav2580/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
         },
         {
           platform: 'GitHub',
           url: 'https://github.com/Arnav2580',
-          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'
-        }
-      ]
-    }
+          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+        },
+      ],
+    },
   ];
 
   const coreTeam = [
@@ -126,9 +59,9 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/rahul-shastri-a84228318/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
+        },
+      ],
     },
     {
       name: 'Mukul Kashyap',
@@ -141,14 +74,14 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/mukul-kashyap-10703a30a/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
         },
         {
           platform: 'GitHub',
           url: 'https://github.com/GitH-Mukul',
-          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'
-        }
-      ]
+          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+        },
+      ],
     },
     {
       name: 'Shashank Patil',
@@ -161,9 +94,9 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/shashank-patil-232881315/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
+        },
+      ],
     },
     {
       name: 'Himanshu Sharma',
@@ -176,9 +109,9 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/himanshu-sharma-72a590272/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
+        },
+      ],
     },
     {
       name: 'Pranav Darekar',
@@ -191,16 +124,17 @@ export default function Team() {
         {
           platform: 'LinkedIn',
           url: 'https://www.linkedin.com/in/pranav-darekar/',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
+          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png',
         },
         {
           platform: 'GitHub',
           url: 'https://github.com/Skywalker1080',
-          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png'
-        }
-      ]
-    }
+          icon: 'https://cdn-icons-png.flaticon.com/512/25/25231.png',
+        },
+      ],
+    },
   ];
+
   return (
     <div className="py-12 sm:py-16 md:py-24 bg-blue-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -233,7 +167,7 @@ export default function Team() {
         </div>
 
         {/* Core Team Section */}
-        <div className="space-y-8 sm:space-y-12 mb-12 sm:mb-16 md:mb-20">
+        <div className="space-y-8 sm:space-y-12">
           <h3 className="text-xl sm:text-2xl font-bold text-white text-center mb-6 sm:mb-8">Core Team</h3>
           <div className="grid gap-6 sm:gap-8">
             {coreTeam.map((member) => (
@@ -249,18 +183,7 @@ export default function Team() {
             ))}
           </div>
         </div>
-
-        {/* College Leads Section */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <LeadSection title="College Leads" leads={clgLeads} />
-        </div>
-
-        {/* Zonal Leads Section */}
-        <div className="mb-12 sm:mb-16 md:mb-20">
-          <LeadSection title="Zonal Leads" leads={zonalLeads} />
-        </div>
       </div>
     </div>
   );
 }
-</boltArtifact>
