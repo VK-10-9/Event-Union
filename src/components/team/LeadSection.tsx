@@ -1,6 +1,5 @@
 import React from 'react';
-import { ProfileSection } from './ProfileSection';
-
+import ProfileSection from "./ProfileSection";
 export default function Team() {
   const coFounders = [
     {
