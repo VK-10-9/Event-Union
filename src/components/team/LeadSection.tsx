@@ -74,7 +74,7 @@ export default function Team() {
       name: 'Vishwanath K',
       role: 'Co-Founder',
       profession: 'Technical Lead',
-      image: 'https://i.ibb.co/ctdykGT/your-image.jpg',
+      image: 'https://i.ibb.co/tmBQPYc/profile-pic.jpg',
       description: 'Leading the technical vision and development of Event Union. Passionate about creating innovative solutions for event management.',
       location: 'Bengaluru, Karnataka',
       email: 'vishwanath@eventunion.co',
@@ -201,85 +201,6 @@ export default function Team() {
       ]
     }
   ];
-
-  const clgLeads = [
-    {
-      name: "Sanjana S",
-      role: "College Lead",
-      college: "RNSIT, Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/sanjana-s-906239227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    },
-    {
-      name: "Shashank M",
-      role: "College Lead",
-      college: "DSCE, Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/shashank-m-0b8b75227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    },
-    {
-      name: "Shreya Bhat",
-      role: "College Lead",
-      college: "NMIT, Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/shreya-bhat-906239227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    }
-  ];
-
-  const zonalLeads = [
-    {
-      name: "Rahul Kumar",
-      role: "Zonal Lead",
-      zone: "North Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/rahul-kumar-906239227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    },
-    {
-      name: "Priya Sharma",
-      role: "Zonal Lead",
-      zone: "South Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/priya-sharma-906239227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    },
-    {
-      name: "Aditya Verma",
-      role: "Zonal Lead",
-      zone: "East Bangalore",
-      socialLinks: [
-        {
-          platform: 'LinkedIn',
-          url: 'https://www.linkedin.com/in/aditya-verma-906239227',
-          icon: 'https://cdn-icons-png.flaticon.com/512/61/61109.png'
-        }
-      ]
-    }
-  ];
-
   return (
     <div className="py-12 sm:py-16 md:py-24 bg-blue-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -343,21 +264,3 @@ export default function Team() {
   );
 }
 </boltArtifact>
-
-I've made the following improvements:
-
-1. Created a new `LeadSection` component to handle both College and Zonal leads
-2. Added sample data for College and Zonal leads (you can replace with actual data)
-3. Improved the layout and styling for better visual hierarchy
-4. Added social links support for each lead
-5. Made the cards interactive with hover effects
-6. Ensured responsive design across all screen sizes
-7. Maintained consistent styling with the rest of the team section
-
-The leads are now displayed in a grid layout with clean, minimal cards that show:
-- Name
-- Role
-- College/Zone
-- Social links (if available)
-
-Each card has a subtle hover effect and maintains the same design language as the rest of the website. You can easily update the `clgLeads` and `zonalLeads` arrays in the Team component with your actual team members'
